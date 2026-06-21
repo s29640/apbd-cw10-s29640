@@ -1,0 +1,53 @@
+﻿@model UserPanelMvcAuth.ViewModels.DashboardViewModel
+
+<h1>Panel użytkownika</h1>
+
+<p>Jesteś zalogowany jako: <strong>@User.Identity?.Name</strong></p>
+
+<h2>Dodaj notatkę</h2>
+
+<form asp-action="AddNote" method="post">
+    @Html.AntiForgeryToken()
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label">Tytuł</label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Content" class="form-label">Treść</label>
+        <textarea asp-for="Content" class="form-control"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Dodaj notatkę</button>
+</form>
+
+<hr />
+
+<h2>Moje notatki</h2>
+
+@if (!Model.Notes.Any())
+{
+    <p>Nie masz jeszcze żadnych notatek.</p>
+}
+else
+{
+    <ul class="list-group">
+        @foreach (var note in Model.Notes)
+        {
+            <li class="list-group-item">
+                <h5>@note.Title</h5>
+                <p>@note.Content</p>
+                <small>@note.CreatedAt.ToLocalTime()</small>
+            </li>
+        }
+    </ul>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
