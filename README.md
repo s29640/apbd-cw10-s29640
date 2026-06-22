@@ -8,7 +8,8 @@ Aplikacja ASP.NET Core MVC przygotowana na ćwiczenie 10 z APBD.
 
 ```bash
 git clone https://github.com/s29640/apbd-cw10-s29640.git
-cd apbd-cw10-s20640/UserPanelMvcAuth
+cd apbd-cw10-s29640
+cd UserPanelMvcAuth
 ```
 
 2. Sprawdź connection string w pliku:
@@ -25,19 +26,26 @@ Przykładowa konfiguracja dla MS SQL Server:
 }
 ```
 
-3. Wykonaj migracje:
+3. Skompiluj
+
+```bash
+dotnet restore
+dotnet build
+```
+
+4. Wykonaj migracje:
 
 ```bash
 dotnet ef database update
 ```
 
-4. Uruchom aplikację:
+5. Uruchom aplikację:
 
 ```bash
 dotnet run
 ```
 
-5. Otwórz aplikację w przeglądarce pod adresem pokazanym w konsoli, np.:
+6. Otwórz aplikację w przeglądarce pod adresem pokazanym w konsoli, np.:
 
 ```text
 https://localhost:7177
