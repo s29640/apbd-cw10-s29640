@@ -7,7 +7,7 @@ Aplikacja ASP.NET Core MVC przygotowana na ćwiczenie 10 z APBD.
 1. Sklonuj repozytorium:
 
 ```bash
-git clone https://github.com/s29640/apbd-cw10-s20640.git
+git clone https://github.com/s29640/apbd-cw10-s29640.git
 cd apbd-cw10-s20640/UserPanelMvcAuth
 ```
 
