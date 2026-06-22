@@ -35,8 +35,7 @@ namespace UserPanelMvcAuth.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            var emailExists = await _context.AppUsers
-                .AnyAsync(u => u.Email == model.Email);
+            var emailExists = await _context.AppUsers.AnyAsync(u => u.Email == model.Email);
 
             if (emailExists)
             {
